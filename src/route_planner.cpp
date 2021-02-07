@@ -98,7 +98,7 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
     RouteModel::Node* child_node = current_node;
     path_found.push_back(*child_node);
 
-    while (child_node != this->start_node) {
+    while (child_node->GetIndex() != this->start_node->GetIndex()) {
         RouteModel::Node* parent_node = child_node->parent;
 
         float step_distance = child_node->distance(*parent_node);
